@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohd Azeem - Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #f0f0f0;
+    color: #1a1a2e;
+    font-size: 13px;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #0d1b3e;
+    color: #fff;
+    padding: 28px 36px 28px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    right: 60px;
+    top: -30px;
+    width: 160px;
+    height: 160px;
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .avatar-wrap {
+    flex-shrink: 0;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    border: 3px solid #c9a84c;
+    overflow: hidden;
+    background: #2a3a6e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 8%;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a3a6e, #1a2a5e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #c9a84c;
+    font-weight: 700;
+  }
+
+  .header-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .header-text .subtitle {
+    color: #c9a84c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  .header-text .contact-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    color: #cdd5e0;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-row span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-row .icon {
+    color: #c9a84c;
+    font-size: 12px;
+  }
+
+  .contact-row a {
+    color: #cdd5e0;
+    text-decoration: none;
+  }
+
+  .contact-row a:hover {
+    color: #c9a84c;
+    text-decoration: underline;
+  }
+
+
+  /* ── PORTFOLIO QR ── */
+  .portfolio-qr {
+    flex-shrink: 0;
+    width: 78px;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    margin-left: auto;
+  }
+  .portfolio-qr img {
+    display: block;
+    width: 62px;
+    height: 62px;
+    padding: 3px;
+    margin: 0 auto 4px;
+    background: #fff;
+    border-radius: 3px;
+  }
+  .portfolio-qr-label {
+    display: block;
+    color: #c9a84c;
+    font-size: 7.5px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: .35px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media print {
+    .portfolio-qr { z-index: 10; }
+  }
+
+  /* ── BODY LAYOUT ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── LEFT COLUMN ── */
+  .left {
+    padding: 28px 30px 28px 36px;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, #c9a84c, transparent);
+  }
+
+  /* Career Objective */
+  .objective-text {
+    color: #444;
+    line-height: 1.7;
+    font-size: 12.5px;
+  }
+
+  /* Education */
+  .edu-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .edu-dot {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #c9a84c;
+    margin-top: 4px;
+  }
+
+  .edu-content h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0d1b3e;
+    margin-bottom: 2px;
+  }
+
+  .edu-content .inst {
+    color: #555;
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .edu-content .tag-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 11.5px;
+    color: #888;
+  }
+
+  .edu-content .tag-row .badge {
+    color: #c9a84c;
+    font-weight: 700;
+  }
+
+  .edu-content .tag-row .sep {
+    color: #ccc;
+  }
+
+  /* Key Highlights */
+  .highlights-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .highlights-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 7px;
+    color: #444;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+
+  .highlights-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #0d1b3e;
+    font-weight: 700;
+  }
+
+  /* Technical Skills */
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-badge {
+    background: #0d1b3e;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RIGHT COLUMN ── */
+  .right {
+    padding: 28px 22px 28px 22px;
+    background: #fafafa;
+  }
+
+  .r-section {
+    margin-bottom: 22px;
+  }
+
+  .r-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0d1b3e;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #c9a84c;
+    padding-bottom: 5px;
+  }
+
+  /* Personal Details */
+  .pd-item {
+    margin-bottom: 10px;
+  }
+
+  .pd-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 2px;
+  }
+
+  .pd-value {
+    font-size: 12.5px;
+    color: #1a1a2e;
+    font-weight: 400;
+  }
+
+  .pd-value a {
+    color: #1a1a2e;
+    text-decoration: none;
+  }
+
+  .pd-value a:hover {
+    color: #c9a84c;
+    text-decoration: underline;
+  }
+
+  /* Progress bars */
+  .bar-item {
+    margin-bottom: 10px;
+  }
+
+  .bar-label-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #333;
+  }
+
+  .bar-label-row .pct {
+    font-size: 11px;
+    color: #666;
+  }
+
+  .bar-bg {
+    height: 5px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: #c9a84c;
+    border-radius: 3px;
+  }
+
+  /* Languages */
+  .lang-item {
+    margin-bottom: 9px;
+  }
+
+  .lang-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .lang-level {
+    font-size: 11px;
+    color: #c9a84c;
+    font-weight: 700;
+  }
+
+  /* Interests */
+  .interests-list {
+    list-style: none;
+    font-size: 12px;
+    color: #444;
+    line-height: 1.9;
+  }
+
+  /* Declaration */
+  .declaration-text {
+    font-size: 11px;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .declaration-sign {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+
+  /* Footer bar */
+  .footer-bar {
+    height: 6px;
+    background: #0d1b3e;
+  }
+
+  /* ── DOWNLOAD BUTTON ── */
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 28px 0 24px;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0d1b3e;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(13,27,62,0.25);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+
+  .download-btn:hover {
+    background: #c9a84c;
+    color: #0d1b3e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+  }
+
+  .download-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; width: 210mm; }
+    .btn-wrap { display: none !important; }
+    @page { size: A4; margin: 0; }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style id="resume-shortcut-tooltip">
+  .resume-shortcut-btn{
+    position:relative !important;
+    overflow:visible !important;
+  }
+  .resume-shortcut-tooltip{
+    position:absolute !important;
+    top:calc(100% + 10px) !important;
+    left:50% !important;
+    transform:translateX(-50%) translateY(-4px) !important;
+    padding:7px 10px !important;
+    border-radius:8px !important;
+    background:#111827 !important;
+    color:#fff !important;
+    font:600 12px/1.2 "Lato",sans-serif !important;
+    white-space:nowrap !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.22) !important;
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    z-index:99999 !important;
+    transition:opacity .18s ease,transform .18s ease,visibility .18s ease !important;
+  }
+  .resume-shortcut-tooltip::before{
+    content:"" !important;
+    position:absolute !important;
+    top:-5px !important;
+    left:50% !important;
+    width:10px !important;
+    height:10px !important;
+    background:#111827 !important;
+    transform:translateX(-50%) rotate(45deg) !important;
+  }
+  .resume-shortcut-btn:hover .resume-shortcut-tooltip,
+  .resume-shortcut-btn:focus-visible .resume-shortcut-tooltip{
+    opacity:1 !important;
+    visibility:visible !important;
+    transform:translateX(-50%) translateY(0) !important;
+  }
+</style>
+
+
+
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="avatar-wrap">
+      <img src="https://mohdazeem7500.github.io/Portfolio/image/profile.jpeg" alt="Mohd Azeem" crossorigin="anonymous">
+    </div>
+    <div class="header-text">
+      <h1>Mohd Azeem</h1>
+      <div class="subtitle">Data Analyst &nbsp;•&nbsp; B.COM (H) </div>
+      <div class="contact-row">
+        <span><span class="icon">📞</span> <a href="https://wa.me/917500623340" target="_blank" rel="noopener">7500623340</a></span>
+        <span><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/mohd-azeem-508792397?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">linkedin.com/in/mohd-azeem</a></span>
+        <a href="https://mohdazeem7500.github.io/portfolios/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:5px; color:#cdd5e0; text-decoration:none;"><span class="icon">🌐</span> Portfolio</a>
+      </div>
+    </div>
+
+    <a class="portfolio-qr" href="https://mohdazeem7500.github.io/portfolios/" target="_blank" rel="noopener" aria-label="Visit My Portfolio">
+      <img src="data:image/png;base64,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" alt="QR code to Mohd Azeem's Portfolio">
+      <span class="portfolio-qr-label">Visit My Portfolio</span>
+    </a>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT -->
+    <div class="left">
+
+      <!-- Career Objective -->
+      <div class="section">
+        <div class="section-title">Career Objective</div>
+        <p class="objective-text">
+          A motivated B.Com (Honours) graduate and certified Data Analyst seeking to leverage analytical, data-driven, and financial skills in a professional environment. Trained at Dizital Mantras, Bareilly in Python, SQL, Power BI &amp; Excel. Committed to delivering actionable insights through data and continuous learning.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <h4>Bachelor of Commerce (Honours)</h4>
+            <div class="inst">Rajshree Institute of Management &amp; Technology, Bareilly</div>
+            <div class="tag-row">
+              <span>Graduation</span>
+              <span class="sep">|</span>
+              <span>2023 – 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <h4><a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Senior Secondary (12th)</a></h4>
+            <div class="inst">Uttar Pradesh Board</div>
+            <div class="tag-row">
+              <span>Percentage: <strong>75.4%</strong></span>
+              <span class="sep">|</span>
+              <span>2022 – 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <h4><a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Secondary (10th)</a></h4>
+            <div class="inst">CBSE Board</div>
+            <div class="tag-row">
+              <span>Percentage: <strong>59.6%</strong></span>
+              <span class="sep">|</span>
+              <span>2019 – 2020</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certification -->
+      <div class="section">
+        <div class="section-title">Certification</div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <h4><a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Data Analyst Certification</a></h4>
+            <div class="inst">Dizital Mantras, Bareilly</div>
+            <div class="tag-row">
+              <span>Professional Certificate</span>
+              <span class="sep">|</span>
+              <span class="badge">Grade A</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-dot"></div>
+          <div class="edu-content">
+            <h4><a href="" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Advance Diploma Computer Application </a></h4>
+            <div class="inst">Computer Mission School, Sindhoura, Bareilly</div>
+            <div class="tag-row">
+              <span>12 Months</span>
+              <span class="sep">|</span>
+              <span class="badge">Grade A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Highlights -->
+      <div class="section">
+        <div class="section-title">Key Highlights</div>
+        <ul class="highlights-list">
+          <li>Certified Data Analyst – Dizital Mantras, Bareilly (Python, SQL, Power BI &amp; Excel)</li>
+          <li>Strong quantitative aptitude, with Mathematics as the highest-scoring subject in Class 10</li>
+          <li>Secured 75.4% in 12th – strong academic track record</li>
+          <li>Awarded Silver Medal for securing the highest marks in B.Com (Hons) class for 2 consecutive years</li>
+          <li>Practical experience in data cleaning, visualization &amp; statistical analysis through projects</li>
+          <li>Strong analytical thinking, communication &amp; team collaboration skills</li>
+        </ul>
+      </div>
+
+      <!-- Technical Skills -->
+      <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-wrap">
+          <span class="skill-badge">Python</span>
+          <span class="skill-badge">SQL</span>
+          <span class="skill-badge">Power BI</span>
+          <span class="skill-badge">MS Excel</span>
+         <span class="skill-badge">Generative AI</span>
+          <span class="skill-badge">Data Visualization</span>
+         <span class="skill-badge">Vlookup/xlookup</span>
+          <span class="skill-badge">Data Cleaning</span>
+          <span class="skill-badge">Pandas</span>
+          <span class="skill-badge">Numpy</span>
+          <span class="skill-badge">Pivot Tables</span>
+         <span class="skill-badge">Dax</span>
+          <span class="skill-badge">Statistical Analysis</span>
+          <span class="skill-badge">MS Office</span>
+          <span class="skill-badge">Financial Analysis</span>
+          <span class="skill-badge">Problem Solving</span>
+          <span class="skill-badge">Communication</span>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- RIGHT -->
+    <div class="right">
+
+      <!-- Personal Details -->
+      <div class="r-section">
+        <div class="r-title">Personal Details</div>
+        <div class="pd-item">
+          <div class="pd-label">Full Name</div>
+          <div class="pd-value">Mohd Azeem</div>
+        </div>
+        <div class="pd-item">
+          <div class="pd-label">Phone</div>
+          <div class="pd-value"><a href="https://wa.me/917500623340" target="_blank" rel="noopener">7500623340</a></div>
+        </div>
+        <div class="pd-item">
+          <div class="pd-label">Email</div>
+          <div class="pd-value"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=azeemda746@gmail.com" target="_blank" rel="noopener">azeemda746@gmail.com</a></div>
+        </div>
+        <div class="pd-item">
+          <div class="pd-label">Address</div>
+          <div class="pd-value"><a href="https://maps.app.goo.gl/sZnq3urmG99p9jKWA" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;">Mohalla Islamnagar Richha,<br>Bareilly, UP – 243201</a></div>
+        </div>
+        <div class="pd-item">
+          <div class="pd-label">Availability</div>
+          <div class="pd-value">Immediate</div>
+        </div>
+      </div>
+
+      <!-- Academic Performance -->
+      <div class="r-section">
+        <div class="r-title">Academic Performance</div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>12th Standard</span>
+            <span class="pct">75.4%</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:75.4%"></div></div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>10th Standard</span>
+            <span class="pct">59.6%</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:59.6%"></div></div>
+        </div>
+      </div>
+
+      <!-- Core Competencies -->
+      <div class="r-section">
+        <div class="r-title">Core Competencies</div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>Data Analysis</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>Power BI / Excel</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>Python / SQL</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:78%"></div></div>
+        </div>
+
+        <div class="bar-item">
+          <div class="bar-label-row">
+            <span>Financial Analysis</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:72%"></div></div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="r-section">
+        <div class="r-title">Languages</div>
+
+        <div class="lang-item">
+          <div class="lang-row">
+            <span>Hindi</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-row">
+            <span>Urdu</span>
+            <span class="lang-level">Fluent</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-row">
+            <span>English</span>
+            <span class="lang-level">Proficient</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="r-section">
+        <div class="r-title">Interests</div>
+        <ul class="interests-list">
+          <li>Data Analytics &amp; BI</li>
+          <li>Business Intelligence</li>
+          <li>Market Research</li>
+         <li>Artificial Intelligence</li>
+        </ul>
+      </div>
+
+      <!-- Declaration -->
+      <div class="r-section">
+        <div class="r-title">Declaration</div>
+        <p class="declaration-text">
+          I hereby declare that all information provided is true and correct to the best of my knowledge.
+        </p>
+        <p class="declaration-sign">Mohd Azeem</p>
+      </div>
+ 
+    </div><!-- /right -->
+ 
+  </div><!-- /body -->
+ 
+  <div class="footer-bar"></div>
+ 
+</div><!-- /page -->
+ 
+<div class="btn-wrap">
+  <a class="download-btn resume-shortcut-btn" id="viewPortfolioBtn" href="https://mohdazeem7500.github.io/portfolios/" target="_blank" rel="noopener" onclick="window.open('https://mohdazeem7500.github.io/portfolios/', '_blank'); return false;">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 0 1 8 8c0 1.9-.66 3.65-1.76 5.03C16.8 15.24 14.6 14 12 14s-4.8 1.24-6.24 3.03A7.96 7.96 0 0 1 4 12a8 8 0 0 1 8-8zm0 1.5A3.5 3.5 0 1 0 12 12a3.5 3.5 0 0 0 0-6.5z"/></svg>
+    View Portfolio
+    <span class="resume-shortcut-tooltip">Ctrl + Z</span>
+  </a>
+  <button class="download-btn resume-shortcut-btn" id="downloadBtn" style="margin-left:16px;"><svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM12 2v12.17l-3.59-3.58L7 12l5 5 5-5-1.41-1.41L12 14.17V2h-2z"/></svg>
+    Download PDF
+    <span class="resume-shortcut-tooltip">Alt + S</span>
+  </button>
+</div>
+ 
+<script>
+  document.getElementById('downloadBtn').addEventListener('click', async function () {
+    const page = document.querySelector('.page');
+    const avatarImg = page.querySelector('.avatar-wrap img');
+
+    // Prepare a square, aspect-ratio-safe copy using the same crop as the
+    // on-screen avatar (object-fit: cover + object-position: center 8%).
+    let avatarDataUrl = null;
+
+    if (avatarImg && avatarImg.naturalWidth && avatarImg.naturalHeight) {
+      try {
+        if (avatarImg.decode) {
+          try { await avatarImg.decode(); } catch (_) {}
+        }
+
+        const rect = avatarImg.getBoundingClientRect();
+        const target = Math.max(1, Math.round(Math.min(rect.width || 95, rect.height || 95)));
+        const nw = avatarImg.naturalWidth;
+        const nh = avatarImg.naturalHeight;
+
+        const scale = Math.max(target / nw, target / nh);
+        const cropW = target / scale;
+        const cropH = target / scale;
+
+        const sx = (nw - cropW) / 2;
+        const sy = (nh - cropH) * 0.08;
+
+        const c = document.createElement('canvas');
+        c.width = target * 2;
+        c.height = target * 2;
+
+        const ctx = c.getContext('2d');
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(
+          avatarImg,
+          sx, sy, cropW, cropH,
+          0, 0, c.width, c.height
+        );
+
+        avatarDataUrl = c.toDataURL('image/png');
+      } catch (err) {
+        console.warn('Could not prepare avatar copy:', err);
+      }
+    }
+
+    // Capture the SAME page layout that the user sees. Do not rebuild the
+    // page in a different off-screen layout, which can change flex sizing.
+    const canvas = await html2canvas(page, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: false,
+      backgroundColor: '#ffffff',
+      logging: false,
+      imageTimeout: 15000,
+      onclone: function(clonedDoc) {
+        const clonedAvatar = clonedDoc.querySelector('.avatar-wrap img');
+
+        if (clonedAvatar && avatarDataUrl) {
+          // Only replace the pixels. Keep the exact original width/height,
+          // object-fit, object-position, border radius, and layout.
+          clonedAvatar.removeAttribute('crossorigin');
+          clonedAvatar.src = avatarDataUrl;
+        }
+      }
+    });
+
+    const imgData = canvas.toDataURL('image/jpeg', 1.0);
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF('p', 'mm', 'a4');
+
+    pdf.addImage(imgData, 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+    pdf.save('Mohd_Azeem_Resume.pdf');
+  });
+</script>
+ 
+
+<script id="resume-keyboard-shortcuts">
+(function(){
+  document.addEventListener('keydown', function(e){
+    const key = e.key.toLowerCase();
+
+    // Ctrl + Z = View Portfolio
+    if(e.ctrlKey && !e.altKey && !e.shiftKey && key === 'z'){
+      const btn = document.getElementById('viewPortfolioBtn');
+      if(btn){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        btn.click();
+      }
+      return;
+    }
+
+    // Alt + S = Download PDF
+    if(e.altKey && !e.ctrlKey && !e.shiftKey && key === 's'){
+      const btn = document.getElementById('downloadBtn');
+      if(btn){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        btn.click();
+      }
+    }
+  }, true);
+})();
+</script>
+
+</body>
+</html>
